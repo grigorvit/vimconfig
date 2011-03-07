@@ -159,6 +159,10 @@ nmap <leader>Y "+yy
 nmap <leader>p "+p
 nmap <leader>P "+P
 
+" YankRing stuff
+let g:yankring_history_dir = '~/.vim/.tmp'
+nmap <leader>r :YRShow<CR>
+
 " Edit the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
