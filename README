@@ -1,1 +1,4 @@
-Vim Configuration Files
+Installation
+git config --global core.excludesfile '~/.gitexcludes'
+echo tags > ~/.gitexcludes
+wget -O - https://github.com/grigorvit/vimconfig/raw/master/autoinstall.sh | sh
