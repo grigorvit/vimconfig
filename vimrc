@@ -199,6 +199,10 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Creating folds for tags in HTML
 nnoremap <leader>ft Vatzf
+
+" Ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+nnoremap <leader>a :Ack<Space>
 " }}}
 
 " Filetype specific handling {{{
@@ -255,7 +259,7 @@ source ~/.vim/autocorrect.vim
 if has("gui_running")
     set guifont=Monospace\ 12
     colorscheme vividchalk
-    set lines=25 columns=100    " Window dimensions.
+    set lines=48 columns=127    " Window dimensions.
 
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
