@@ -282,10 +282,6 @@ iab lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit
 iab llorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lacus ligula, accumsan id imperdiet rhoncus, dapibus vitae arcu. Nulla non quam erat, luctus consequat nisi
 iab lllorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lacus ligula, accumsan id imperdiet rhoncus, dapibus vitae arcu. Nulla non quam erat, luctus consequat nisi. Integer hendrerit lacus sagittis erat fermentum tincidunt. Cras vel dui neque. In sagittis commodo luctus. Mauris non metus dolor, ut suscipit dui. Aliquam mauris lacus, laoreet et consequat quis, bibendum id ipsum. Donec gravida, diam id imperdiet cursus, nunc nisl bibendum sapien, eget tempor neque elit in tortor
 
-" Common abbreviations / misspellings {{{
-source ~/.vim/autocorrect.vim
-" }}}
-
 if has("gui_running")
     set guifont=Monospace\ 12
     colorscheme vividchalk
@@ -298,3 +294,11 @@ if has("gui_running")
     set guioptions-=r
     set guioptions-=R
 endif
+
+" Common abbreviations / misspellings {{{
+source ~/.vim/autocorrect.vim
+" }}}
+
+" Extra user or machine specific settings {{{
+source ~/.vim/user.vim
+" }}}
