@@ -117,22 +117,26 @@ endfunction
 " slows the commands down
 nnoremap ; :
 
-" Avoid accidental hits of <F1> while aiming for <Esc>
-map! <F1> <Esc>
+" Swap implementations of ` and ' jump to markers
+nnoremap ' `
+nnoremap ` '
 
 " Quickly close the current window
 nnoremap <leader>q :q<CR>
 
-" Use Q for formatting the current paragraph (or visual selection)
-vmap Q gq
-nmap Q gqap
+" Quickly get out of insert mode without your fingers having to leave the
+" home row
+inoremap jj <Esc>
+
+" Go to the directory containing the file in the buffer
+nmap <silent> ,cd :lcd %:h<CR>
 
 " Shortcut to make
 nmap mk :make<CR>
 
-" swap implementations of ` and ' jump to markers
-nnoremap ' `
-nnoremap ` '
+" Edit the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -159,20 +163,12 @@ nmap <leader>Y "+yy
 nmap <leader>p "+p
 nmap <leader>P "+P
 
-" YankRing stuff
-let g:yankring_history_dir = '~/.vim/.tmp'
-nmap <leader>r :YRShow<CR>
-
-" Edit the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
 " Clears the search register
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" Quickly get out of insert mode without your fingers having to leave the
-" home row
-inoremap jj <Esc>
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
 
 " Quick alignment of text
 nmap <leader>al :left<CR>
@@ -200,9 +196,43 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " Creating folds for tags in HTML
 nnoremap <leader>ft Vatzf
 
+" YankRing
+let g:yankring_history_dir = '~/.vim/.tmp'
+nmap <leader>r :YRShow<CR>
+
 " Ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>a :Ack<Space>
+" }}}
+
+" NERDTree settings {{{
+nmap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
+nmap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
+nmap <leader>N :NERDTreeClose<CR>
+
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("~/.vim/NERDTreeBookmarks")
+
+" Show the bookmarks table on startup
+let NERDTreeShowBookmarks=1
+
+" Show hidden files, too
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+
+" Quit on opening files from the tree
+let NERDTreeQuitOnOpen=1
+
+" Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1
+
+" Use a single click to fold/unfold directories and a double click to open
+" files
+let NERDTreeMouseMode=2
+
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
 " }}}
 
 " Filetype specific handling {{{
