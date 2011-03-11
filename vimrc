@@ -17,7 +17,6 @@ syntax on                       " switch syntax highlighting on
 let mapleader=","
 
 " Editing behaviour {{{
-set number                      " always show line numbers
 set showmode                    " always show what mode we're currently editing in
 set nowrap                      " don't wrap lines
 set tabstop=4                   " a tab is four spaces
@@ -61,9 +60,12 @@ nnoremap <C-y> 2<C-y>
 " Editor layout {{{
 set termencoding=utf-8
 set encoding=utf-8
+set number                      " always show line numbers
 set laststatus=2                " tell VIM to always put a status line in, even
                                 "       if there is only one window
 set cmdheight=2                 " use a status bar that is 2 rows high
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 " }}}
 
 " Vim behaviour {{{
@@ -293,6 +295,8 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
     set guioptions-=R
+else
+    set background=dark
 endif
 
 " Common abbreviations / misspellings {{{
