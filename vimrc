@@ -57,10 +57,11 @@ nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 " }}}
 
-" Editor layout {{{
+" Vim appearance {{{
 set termencoding=utf-8
 set encoding=utf-8
 set number                      " always show line numbers
+set fillchars=""                " get rid of the silly characters in window separators
 set laststatus=2                " tell VIM to always put a status line in, even
                                 "       if there is only one window
 set cmdheight=2                 " use a status bar that is 2 rows high
@@ -131,7 +132,7 @@ nnoremap <leader>q :q<CR>
 inoremap jj <Esc>
 
 " Quickly toggle caps lock
-imap jk <Plug>CapsLockToggle
+map jk <Plug>CapsLockToggle
 
 " Go to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
@@ -148,7 +149,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nnoremap <leader>w <C-w>v<C-w>l
 
 " Complete whole filenames/lines with a quicker shortcut key in insert mode
 imap <C-f> <C-x><C-f>
@@ -195,11 +195,14 @@ vnoremap <Tab> %
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Strip all trailing whitespace from a file, using ,W
-nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-
 " Creating folds for tags in HTML
 nnoremap <leader>ft Vatzf
+
+" Set text wrapping toggles
+nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
+
+" Strip all trailing whitespace from a file, using ,W
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " YankRing
 let g:yankring_history_dir = '~/.vim/.tmp'
@@ -289,18 +292,20 @@ iab lllorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lacus
 
 if has("gui_running")
     set guifont=Monospace\ 12
-    colorscheme vividchalk
-    set lines=48 columns=127    " Window dimensions.
+    colorscheme molokai
+    set lines=48 columns=126    " Window dimensions
 
     " Remove toolbar, left scrollbar and right scrollbar
+    set guioptions-=m
     set guioptions-=T
     set guioptions-=l
     set guioptions-=L
     set guioptions-=r
     set guioptions-=R
 else
-    set background=dark
+    set background=light
 endif
+
 
 " Common abbreviations / misspellings {{{
 source ~/.vim/autocorrect.vim
