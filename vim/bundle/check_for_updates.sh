@@ -6,6 +6,7 @@ for submodule in *; do
     if [ -d "$submodule/.git" ]; then
         cd "$submodule"
         echo "--- $submodule:"
+        git checkout master
         git pull
         cd ..
     fi

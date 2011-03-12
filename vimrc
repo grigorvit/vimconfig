@@ -132,7 +132,7 @@ nnoremap <leader>q :q<CR>
 inoremap jj <Esc>
 
 " Quickly toggle caps lock
-map jk <Plug>CapsLockToggle
+imap jk <Plug>CapsLockToggle
 
 " Go to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
