@@ -16,3 +16,6 @@
 [submodule "vim/bundle/capslock"]
 	path = vim/bundle/capslock
 	url = git://github.com/vim-scripts/capslock.vim.git
+[submodule "vim/bundle/xptemplate"]
+	path = vim/bundle/xptemplate
+	url = git://github.com/vim-scripts/xptemplate.git

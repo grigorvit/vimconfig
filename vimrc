@@ -60,6 +60,7 @@ nnoremap <C-y> 2<C-y>
 " Vim appearance {{{
 set termencoding=utf-8
 set encoding=utf-8
+set background=dark
 set number                      " always show line numbers
 set fillchars=""                " get rid of the silly characters in window separators
 set laststatus=2                " tell VIM to always put a status line in, even
@@ -211,6 +212,9 @@ nmap <leader>r :YRShow<CR>
 " Ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>a :Ack<Space>
+
+" XPTemplate
+let g:xptemplate_key = '<Tab>'
 " }}}
 
 " NERDTree settings {{{
@@ -302,8 +306,6 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
     set guioptions-=R
-else
-    set background=light
 endif
 
 
