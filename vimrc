@@ -213,6 +213,9 @@ nmap <leader>r :YRShow<CR>
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 nnoremap <leader>a :Ack<Space>
 
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
 " XPTemplate
 let g:xptemplate_key = '<Tab>'
 " }}}

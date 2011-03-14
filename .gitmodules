@@ -19,3 +19,6 @@
 [submodule "vim/bundle/xptemplate"]
 	path = vim/bundle/xptemplate
 	url = git://github.com/vim-scripts/xptemplate.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = git://github.com/sjl/gundo.vim.git
