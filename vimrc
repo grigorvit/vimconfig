@@ -163,12 +163,6 @@ vmap <silent> <leader>d "_d
 " Quick yanking to the end of the line
 nmap Y y$
 
-" Yank/paste to the OS clipboard with ,y and ,p
-nmap <leader>y "+y
-nmap <leader>Y "+yy
-nmap <leader>p "+p
-nmap <leader>P "+P
-
 " Clears the search register
 nmap <silent> <leader>/ :nohlsearch<CR>
 

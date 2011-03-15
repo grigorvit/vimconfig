@@ -25,3 +25,6 @@
 [submodule "vim/bundle/fswitch"]
 	path = vim/bundle/fswitch
 	url = git://github.com/ewiplayer/vim-fswitch.git
+[submodule "vim/bundle/protodef"]
+	path = vim/bundle/protodef
+	url = git://github.com/ewiplayer/vim-protodef.git
