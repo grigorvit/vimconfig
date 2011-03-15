@@ -218,6 +218,9 @@ nnoremap <F5> :GundoToggle<CR>
 
 " XPTemplate
 let g:xptemplate_key = '<Tab>'
+
+" FSwitch
+nmap <silent> ,of :FSHere<CR>
 " }}}
 
 " NERDTree settings {{{
