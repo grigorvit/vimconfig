@@ -1,17 +1,19 @@
-XPTemplate priority=sub-1
-
 if exists("b:__MY_CPP_XPT_VIM__")
   finish
 endif
 let b:__MY_CPP_XPT_VIM__ = 1
 
+XPTemplate priority=sub-1
+
 let s:f = g:XPTfuncs()
+
+XPTvar $author Vitali
+XPTvar $email  grigorvit@gmail.com
 
 XPTinclude
     \ _common/common
     \ _loop/java.like
     \ c/c
-    \ c/wrap
 
 function! s:f.year(...) "{{{
   return strftime("%Y")

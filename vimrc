@@ -212,6 +212,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 " XPTemplate
 let g:xptemplate_key = '<Tab>'
+let g:xptemplate_vars = "SParg="
+let g:xptemplate_brace_complete = '(['
 
 " FSwitch
 nmap <silent> ,of :FSHere<CR>
