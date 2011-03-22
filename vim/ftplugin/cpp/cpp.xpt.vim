@@ -192,7 +192,7 @@ XPT fullmain hint=C++\ main\ including\ #includes
 
 using namespace std;
 
-int main(int argv, char** argv)
+int main(int argc, char** argv)
 {
     `cursor^
 
@@ -229,7 +229,7 @@ public:
     /**
      * Constructor
      */
-    `fileRoot()^();
+    `fileRoot()^(`argument^`...^, `arg^`...^);
 
     /**
      * Destructor

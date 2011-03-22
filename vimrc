@@ -140,16 +140,23 @@ nmap <silent> ,cd :lcd %:h<CR>
 
 " Shortcut to make
 nmap mk :make<CR>
+nmap mc :make clean<CR>
+nmap ms :make strip<CR>
 
 " Edit the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Handle windows a bit easier
+noremap <silent> ,h :wincmd h<CR>
+noremap <silent> ,j :wincmd j<CR>
+noremap <silent> ,k :wincmd k<CR>
+noremap <silent> ,l :wincmd l<CR>
+noremap <silent> ,cj :wincmd j<CR>:close<CR>
+noremap <silent> ,ck :wincmd k<CR>:close<CR>
+noremap <silent> ,ch :wincmd h<CR>:close<CR>
+noremap <silent> ,cl :wincmd l<CR>:close<CR>
+noremap <silent> ,cc :close<CR>
 
 " Complete whole filenames/lines with a quicker shortcut key in insert mode
 imap <C-f> <C-x><C-f>
@@ -213,10 +220,18 @@ nnoremap <F5> :GundoToggle<CR>
 " XPTemplate
 let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = "SParg="
-let g:xptemplate_brace_complete = '(['
+let g:xptemplate_brace_complete = ''
 
 " FSwitch
 nmap <silent> ,of :FSHere<CR>
+nmap <silent> ,ol :FSRight<CR>
+nmap <silent> ,oL :FSSplitRight<CR>
+nmap <silent> ,oh :FSLeft<CR>
+nmap <silent> ,oH :FSSplitLeft<CR>
+nmap <silent> ,ok :FSAbove<CR>
+nmap <silent> ,oK :FSSplitAbove<CR>
+nmap <silent> ,oj :FSBelow<CR>
+nmap <silent> ,oJ :FSSplitBelow<CR>
 " }}}
 
 " NERDTree settings {{{
@@ -251,10 +266,21 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
 
 " Filetype specific handling {{{
 if has("autocmd")
+    augroup whitespaces "{{{
+        au!
+        " Syntax of these languages is fussy over tabs Vs spaces
+        autocmd filetype make setlocal ts=8 sts=8 sw=8 noexpandtab
+        autocmd filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+        " Customisations based on house-style (arbitrary)
+        autocmd filetype html setlocal ts=2 sts=2 sw=2 expandtab
+        autocmd filetype css setlocal ts=2 sts=2 sw=2 expandtab
+    augroup end "}}}
+
     augroup invisible_chars "{{{
         au!
         " Show invisible characters in all of these files
         autocmd filetype vim setlocal list
+        autocmd filetype make setlocal list
         autocmd filetype python,rst setlocal list
         autocmd filetype ruby setlocal list
         autocmd filetype javascript,css setlocal list
